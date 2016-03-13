@@ -1,0 +1,20 @@
+
+
+
+
+<canvas id="canvas" style="background:url(https://upload.wikimedia.org/wikipedia/commons/5/51/BlankMap-Equirectangular.svg);
+  background-size:cover; width: 93vw;">
+</canvas>
+
+<script type="text/javascript">
+  var canvas = document.getElementById('canvas');
+  if (canvas.getContext){
+    var ctx = canvas.getContext('2d');
+
+    ctx.beginPath();
+    ctx.moveTo(75,50);
+    ctx.lineTo(100,75);
+    ctx.lineTo(100,25);
+    ctx.fill();
+  }
+</script>
