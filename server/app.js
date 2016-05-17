@@ -19,7 +19,7 @@ app.use(cookieParser());
 /**
  * Development Settings
  */
-if (app.get('env') === 'development') {
+
     // This will change in production since we'll be using the dist folder
     app.use(express.static(path.join(__dirname, '../client')));
     // This covers serving up the index page
@@ -34,26 +34,8 @@ if (app.get('env') === 'development') {
             error: err
         });
     });
-}
 
-/**
- * Production Settings
- */
-if (app.get('env') === 'production') {
 
-    // changes it to use the optimized version for production
-    app.use(express.static(path.join(__dirname, '/dist')));
-
-    // production error handler
-    // no stacktraces leaked to user
-    app.use(function(err, req, res, next) {
-        res.status(err.status || 500);
-        res.render('error', {
-            message: err.message,
-            error: {}
-        });
-    });
-}
 
 
 module.exports = app;
